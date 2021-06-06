@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-auto d-flex">
         <span id="main-temperature">{{ weatherData.temperature }}</span
-        ><span id="temp-unit" class="align-self-start mt-4">°F|°C</span>
+        ><span id="temp-unit" class="align-self-start mt-4">°F</span>
       </div>
       <div class="col-auto d-flex justify-content-center" id="weather-icon-col">
         <ng-container *ngIf="weatherData.weatherIconId === '01d'">
@@ -30,6 +30,54 @@
             class="align-self-center"
           ></object>
         </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '04d'">
+          <object
+            data="../../../assets/SVG/broken_clouds.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '09d'">
+          <object
+            data="../../../assets/SVG/shower_rain.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '10d'">
+          <object
+            data="../../../assets/SVG/rain.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '11d'">
+          <object
+            data="../../../assets/SVG/thunderstorm.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '13d'">
+          <object
+            data="../../../assets/SVG/snow.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '50d'">
+          <object
+            data="../../../assets/SVG/mist.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
       </div>
     </div>
     <hr />
@@ -47,10 +95,26 @@
     </div>
     <div class="row">
       <div class="col-auto">
+        <span id="sub-text">{{ weatherData.descriptionMain }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto">
         <span id="sub-text">{{ weatherData.description }}</span>
       </div>
     </div>
     <hr />
-    <div class="row"></div>
+    <div class="row">
+      <div class="col">
+        <span id="forecast-title">7-Day Forecast</span>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <ng-container *ngFor="let forecast of sevenDayForecast.forecast">
+        <div class="col-xl col-lg-4 col-md-6 mb-4">
+          <app-forecast-card [forecastData]="forecast"></app-forecast-card>
+        </div>
+      </ng-container>
+    </div>
   </ng-container>
 </div>

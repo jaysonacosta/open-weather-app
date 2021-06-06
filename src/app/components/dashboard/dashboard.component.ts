@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { LocationService } from 'src/app/services/location.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -83,16 +84,19 @@ export class DashboardComponent implements OnInit {
 
   async getSevenDayForecast(coordinates: Coordinates): Promise<void> {
     const data: any = await this.weatherService.sevenDayForecast(coordinates);
+    console.log(data);
     for (let i = 1; i < 8; i++) {
       const entry = data.daily[i];
       const forecast: Forecast = {
-        date: entry.dt,
-        sunriseTime: entry.sunrise,
-        sunsetTime: entry.sunset,
-        dayTemp: entry.temp.day,
-        nightTemp: entry.temp.night,
-        dayFeelsLike: entry.feels_like.day,
-        nightFeelsLike: entry.feels_like.night,
+        date: moment.unix(entry.dt).format('ddd'),
+        sunriseTime: moment.unix(entry.sunrise).format('LT'),
+        sunsetTime: moment.unix(entry.sunset).format('LT'),
+        dayTemp: Math.floor(entry.temp.day),
+        nightTemp: Math.floor(entry.temp.night),
+        dayFeelsLike: Math.floor(entry.feels_like.day),
+        nightFeelsLike: Math.floor(entry.feels_like.night),
+        maxTemp: Math.floor(entry.temp.max),
+        minTemp: Math.floor(entry.temp.min),
         weatherMain: entry.weather[0].main,
         weatherDescription: entry.weather[0].description,
         weatherIconId: entry.weather[0].icon,
@@ -128,12 +132,14 @@ interface SevenDayForecast {
 
 interface Forecast {
   date: string;
-  sunriseTime: number;
-  sunsetTime: number;
+  sunriseTime: string;
+  sunsetTime: string;
   dayTemp: number;
   nightTemp: number;
   dayFeelsLike: number;
   nightFeelsLike: number;
+  maxTemp: number;
+  minTemp: number;
   weatherMain: string;
   weatherDescription: string;
   weatherIconId: string;
