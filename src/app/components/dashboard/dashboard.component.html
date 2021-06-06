@@ -1,0 +1,56 @@
+<div class="container shadow pt-3">
+  <ng-container *ngIf="authenticated">
+    <div class="row justify-content-center">
+      <div class="col-auto d-flex">
+        <span id="main-temperature">{{ weatherData.temperature }}</span
+        ><span id="temp-unit" class="align-self-start mt-4">°F|°C</span>
+      </div>
+      <div class="col-auto d-flex justify-content-center" id="weather-icon-col">
+        <ng-container *ngIf="weatherData.weatherIconId === '01d'">
+          <object
+            data="../../../assets/SVG/clear_sky.svg"
+            height="80"
+            width="80"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '02d'">
+          <object
+            data="../../../assets/SVG/partly_cloudy.svg"
+            height="80"
+            width="80"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '03d'">
+          <object
+            data="../../../assets/SVG/scattered_clouds.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-auto">
+        <span id="location-text"
+          >{{ weatherData.name }}, {{ weatherData.country }}</span
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto">
+        <span id="sub-text">{{ weekday }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto">
+        <span id="sub-text">{{ weatherData.description }}</span>
+      </div>
+    </div>
+    <hr />
+    <div class="row"></div>
+  </ng-container>
+</div>
