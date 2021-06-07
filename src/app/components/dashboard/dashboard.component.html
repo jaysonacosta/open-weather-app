@@ -14,6 +14,14 @@
             class="align-self-center"
           ></object>
         </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '01n'">
+          <object
+            data="../../../assets/SVG/clear_sky_night.svg"
+            height="80"
+            width="80"
+            class="align-self-center"
+          ></object>
+        </ng-container>
         <ng-container *ngIf="weatherData.weatherIconId === '02d'">
           <object
             data="../../../assets/SVG/partly_cloudy.svg"
@@ -22,7 +30,15 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '03d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '02n'">
+          <object
+            data="../../../assets/SVG/partly_cloudy_night.svg"
+            height="80"
+            width="80"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '03d' || weatherData.weatherIconId === '03n'">
           <object
             data="../../../assets/SVG/scattered_clouds.svg"
             height="120"
@@ -30,7 +46,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '04d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '04d' || weatherData.weatherIconId === '04d'">
           <object
             data="../../../assets/SVG/broken_clouds.svg"
             height="120"
@@ -38,7 +54,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '09d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '09d' || weatherData.weatherIconId === '09d'">
           <object
             data="../../../assets/SVG/shower_rain.svg"
             height="120"
@@ -54,7 +70,15 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '11d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '10n'">
+          <object
+            data="../../../assets/SVG/rain_night.svg"
+            height="120"
+            width="120"
+            class="align-self-center"
+          ></object>
+        </ng-container>
+        <ng-container *ngIf="weatherData.weatherIconId === '11d' || weatherData.weatherIconId === '11n'">
           <object
             data="../../../assets/SVG/thunderstorm.svg"
             height="120"
@@ -62,7 +86,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '13d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '13d' || weatherData.weatherIconId === '13dn'">
           <object
             data="../../../assets/SVG/snow.svg"
             height="120"
@@ -70,7 +94,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="weatherData.weatherIconId === '50d'">
+        <ng-container *ngIf="weatherData.weatherIconId === '50d' || weatherData.weatherIconId === '50d'">
           <object
             data="../../../assets/SVG/mist.svg"
             height="120"
@@ -116,5 +140,6 @@
         </div>
       </ng-container>
     </div>
+    <hr />
   </ng-container>
 </div>
