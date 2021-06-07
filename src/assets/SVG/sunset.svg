@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="38.242" viewBox="0 0 60 38.242">
+  <g id="sunset" transform="translate(-199 -98.758)">
+    <path id="sun" d="M128.67-155H101.331A15.6,15.6,0,0,1,99-163.211a15.512,15.512,0,0,1,1.257-6.146,15.727,15.727,0,0,1,3.429-5.019,15.961,15.961,0,0,1,5.086-3.384A16.083,16.083,0,0,1,115-179a16.083,16.083,0,0,1,6.228,1.241,15.961,15.961,0,0,1,5.086,3.384,15.728,15.728,0,0,1,3.429,5.019A15.512,15.512,0,0,1,131-163.211a15.6,15.6,0,0,1-2.33,8.21Z" transform="translate(114 292)" fill="#ffd45e"/>
+    <line id="ground" x1="59" transform="translate(199.5 136.5)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    <g id="sun_rays" transform="translate(99 -179)">
+      <rect id="ray_1" width="3" height="10" rx="1.5" transform="matrix(-0.174, -0.985, 0.985, -0.174, 101.481, 313.345)" fill="#ffd45e"/>
+      <rect id="ray_2" width="3" height="10" rx="1.5" transform="matrix(-0.174, 0.985, -0.985, -0.174, 159.039, 310.391)" fill="#ffd45e"/>
+      <rect id="ray_3" width="3" height="10" rx="1.5" transform="matrix(0.616, -0.788, 0.788, 0.616, 106.144, 291.902)" fill="#ffd45e"/>
+      <rect id="ray_4" width="3" height="10.17" rx="1.5" transform="matrix(-0.616, -0.788, 0.788, -0.616, 145.991, 298.164)" fill="#ffd45e"/>
+    </g>
+    <path id="down-arrow" d="M3.267,11.8.439,8.975A1.5,1.5,0,1,1,2.561,6.854l.354.354V1.5a1.5,1.5,0,0,1,3,0V7.206l.354-.354A1.5,1.5,0,0,1,8.389,8.974L5.56,11.8a1.5,1.5,0,0,1-1.145.437l-.088,0A1.5,1.5,0,0,1,3.267,11.8Z" transform="translate(224.586 98.758)" fill="#707070"/>
+  </g>
+</svg>

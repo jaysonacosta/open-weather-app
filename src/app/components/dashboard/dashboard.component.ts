@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
     country: '',
     temperature: 0,
     feelsLike: 0,
+    sunriseTime: '',
+    sunsetTime: '',
     descriptionMain: '',
     description: '',
     weatherIconId: '',
@@ -74,12 +76,15 @@ export class DashboardComponent implements OnInit {
       country: data.sys.country,
       temperature: Math.floor(data.main.temp),
       feelsLike: Math.floor(data.main.feels_like),
+      sunriseTime: moment.unix(data.sys.sunrise).format('LT'),
+      sunsetTime: moment.unix(data.sys.sunset).format('LT'),
       descriptionMain: data.weather[0].main,
       description: data.weather[0].description,
       weatherIconId: data.weather[0].icon,
     };
     this.weatherData = weatherData;
     this.authenticated = true;
+    console.log(data);
   }
 
   async getSevenDayForecast(coordinates: Coordinates): Promise<void> {
@@ -121,6 +126,8 @@ interface WeatherData {
   country: string;
   temperature: number;
   feelsLike: number;
+  sunriseTime: string;
+  sunsetTime: string;
   descriptionMain: string;
   description: string;
   weatherIconId: string;
