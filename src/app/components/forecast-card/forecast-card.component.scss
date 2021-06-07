@@ -1,7 +1,15 @@
 #forecast-card-info-temp {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .gray {
-    color: #919191;
+  color: #919191;
+}
+
+.card {
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(0.97);
+    cursor: pointer;
   }
+}
