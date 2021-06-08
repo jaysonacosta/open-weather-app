@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
     name: '',
     country: '',
     temperature: 0,
+    tempHigh: 0,
+    tempLow: 0,
     feelsLike: 0,
     sunriseTime: '',
     sunsetTime: '',
@@ -78,6 +80,8 @@ export class DashboardComponent implements OnInit {
       name: data.name,
       country: data.sys.country,
       temperature: Math.floor(data.main.temp),
+      tempHigh: Math.floor(data.main.temp_max),
+      tempLow: Math.floor(data.main.temp_min),
       feelsLike: Math.floor(data.main.feels_like),
       sunriseTime: moment.unix(data.sys.sunrise).format('LT'),
       sunsetTime: moment.unix(data.sys.sunset).format('LT'),
@@ -143,6 +147,8 @@ interface WeatherData {
   name: string;
   country: string;
   temperature: number;
+  tempHigh: number;
+  tempLow: number;
   feelsLike: number;
   sunriseTime: string;
   sunsetTime: string;

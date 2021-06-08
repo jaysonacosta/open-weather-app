@@ -144,8 +144,22 @@
         </ng-container>
       </div>
     </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <span id="small-text">H: {{ weatherData.tempHigh }}</span>
+      </div>
+      <div class="col-auto">
+        <span id="small-text">L: {{ weatherData.tempLow }}</span>
+      </div>
+    </div>
+
     <hr />
-    <div class="row pb-3" id="hourly-forecast-row">
+    <div class="row">
+      <div class="col">
+        <span id="forecast-title">48-Hour Forecast</span>
+      </div>
+    </div>
+    <div class="row pb-3 mt-3" id="hourly-forecast-row">
       <ng-container *ngFor="let hourly of hourlyForecast.forecast">
         <div class="col-xs-4 ml-2 mr-2" id="test-card">
           <app-hourly-forecast-card
