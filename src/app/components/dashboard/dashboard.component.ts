@@ -59,7 +59,6 @@ export class DashboardComponent implements OnInit {
     await this.getHourlyForecast(coordinates);
     await this.getSevenDayForecast(coordinates);
     this.getDate();
-    console.log(this.hourlyForecast);
   }
 
   async getLocation() {
@@ -77,14 +76,13 @@ export class DashboardComponent implements OnInit {
 
   async getWeather(coordinates: Coordinates): Promise<void> {
     const data: any = await this.weatherService.apiCall(coordinates);
-    console.log(data);
     const weatherData: WeatherData = {
       name: data.name,
       country: data.sys.country,
       temperature: Math.floor(data.main.temp),
       tempHigh: Math.floor(data.main.temp_max),
       tempLow: Math.floor(data.main.temp_min),
-      humidity: (data.main.humidity),
+      humidity: data.main.humidity,
       feelsLike: Math.floor(data.main.feels_like),
       sunriseTime: moment.unix(data.sys.sunrise).format('LT'),
       sunsetTime: moment.unix(data.sys.sunset).format('LT'),
@@ -94,12 +92,10 @@ export class DashboardComponent implements OnInit {
     };
     this.weatherData = weatherData;
     this.authenticated = true;
-    console.log(data);
   }
 
   async getSevenDayForecast(coordinates: Coordinates): Promise<void> {
     const data: any = await this.weatherService.sevenDayForecast(coordinates);
-    console.log(data);
     for (let i = 1; i < 8; i++) {
       const entry = data.daily[i];
       const forecast: Forecast = {
