@@ -37,6 +37,10 @@ export class DashboardComponent implements OnInit {
     forecast: [],
   };
 
+  hourlyForecast: HourlyForecast = {
+    forecast: [],
+  };
+
   fahrenheit = true;
 
   authenticated = false;
@@ -49,11 +53,10 @@ export class DashboardComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const coordinates = await this.getLocation();
     await this.getWeather(coordinates);
+    await this.getHourlyForecast(coordinates);
     await this.getSevenDayForecast(coordinates);
     this.getDate();
-    console.log('test');
-    console.log(this.weatherData);
-    console.log(this.sevenDayForecast);
+    console.log(this.hourlyForecast);
   }
 
   async getLocation() {
@@ -110,6 +113,21 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  async getHourlyForecast(coordinates: Coordinates): Promise<void> {
+    const data = await this.weatherService.getHourlyForecast(coordinates);
+    for (const entry in data['hourly']) {
+      if (entry) {
+        const hourlyForecast = data['hourly'][entry];
+        const hourly: Hourly = {
+          time: moment.unix(hourlyForecast['dt']).format('hA'),
+          temperature: Math.floor(hourlyForecast['temp']),
+          weatherIconId: hourlyForecast['weather'][0]['icon'],
+        };
+        this.hourlyForecast.forecast.push(hourly);
+      }
+    }
+  }
+
   getDate(): void {
     const date = new Date();
     this.weekday = this.weekdays[date.getDay()];
@@ -149,5 +167,15 @@ interface Forecast {
   minTemp: number;
   weatherMain: string;
   weatherDescription: string;
+  weatherIconId: string;
+}
+
+interface HourlyForecast {
+  forecast: Hourly[];
+}
+
+interface Hourly {
+  time: string;
+  temperature: number;
   weatherIconId: string;
 }

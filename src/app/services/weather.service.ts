@@ -20,7 +20,14 @@ export class WeatherService {
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=current,minutely,hourly,alerts&appid=${this.token}&units=imperial`;
     return new Promise((res, rej) => {
       this.http.get(url).toPromise().then(res).catch(rej);
-    })
+    });
+  }
+
+  getHourlyForecast(coordinates: Coordinates): Promise<any> {
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=current,minutely,daily,alerts&appid=${this.token}&units=imperial`;
+    return new Promise((res, rej) => {
+      this.http.get(url).toPromise().then(res).catch(rej);
+    });
   }
 }
 

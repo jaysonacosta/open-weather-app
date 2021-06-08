@@ -1,12 +1,14 @@
 <div class="card shadow-sm">
   <div class="card-body">
     <div class="row justify-content-center">
-      <div class="col-auto">{{ forecastData.date }}</div>
+      <div class="col-auto">
+        {{ hourly.time }}
+      </div>
     </div>
     <hr />
     <div class="row justify-content-center">
       <div class="col-auto">
-        <ng-container *ngIf="forecastData.weatherIconId === '01d'">
+        <ng-container *ngIf="hourly.weatherIconId === '01d'">
           <object
             data="../../../assets/SVG/clear_sky.svg"
             height="70"
@@ -14,7 +16,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="forecastData.weatherIconId === '01n'">
+        <ng-container *ngIf="hourly.weatherIconId === '01n'">
           <object
             data="../../../assets/SVG/clear_sky_night.svg"
             height="70"
@@ -22,7 +24,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="forecastData.weatherIconId === '02d'">
+        <ng-container *ngIf="hourly.weatherIconId === '02d'">
           <object
             data="../../../assets/SVG/partly_cloudy.svg"
             height="70"
@@ -30,9 +32,9 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="forecastData.weatherIconId === '02n'">
+        <ng-container *ngIf="hourly.weatherIconId === '02n'">
           <object
-            data="../../../assets/SVG/partly_cloudy.svg"
+            data="../../../assets/SVG/partly_cloudy_night.svg"
             height="70"
             width="70"
             class="align-self-center"
@@ -40,8 +42,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '03d' ||
-            forecastData.weatherIconId === '03n'
+            hourly.weatherIconId === '03d' || hourly.weatherIconId === '03n'
           "
         >
           <object
@@ -53,8 +54,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '04d' ||
-            forecastData.weatherIconId === '04n'
+            hourly.weatherIconId === '04d' || hourly.weatherIconId === '04n'
           "
         >
           <object
@@ -66,8 +66,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '09d' ||
-            forecastData.weatherIconId === '09n'
+            hourly.weatherIconId === '09d' || hourly.weatherIconId === '09n'
           "
         >
           <object
@@ -77,7 +76,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="forecastData.weatherIconId === '10d'">
+        <ng-container *ngIf="hourly.weatherIconId === '10d'">
           <object
             data="../../../assets/SVG/rain.svg"
             height="70"
@@ -85,7 +84,7 @@
             class="align-self-center"
           ></object>
         </ng-container>
-        <ng-container *ngIf="forecastData.weatherIconId === '10n'">
+        <ng-container *ngIf="hourly.weatherIconId === '10n'">
           <object
             data="../../../assets/SVG/rain_night.svg"
             height="70"
@@ -95,8 +94,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '11d' ||
-            forecastData.weatherIconId === '11n'
+            hourly.weatherIconId === '11d' || hourly.weatherIconId === '11n'
           "
         >
           <object
@@ -108,8 +106,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '13d' ||
-            forecastData.weatherIconId === '13n'
+            hourly.weatherIconId === '13d' || hourly.weatherIconId === '13n'
           "
         >
           <object
@@ -121,8 +118,7 @@
         </ng-container>
         <ng-container
           *ngIf="
-            forecastData.weatherIconId === '50d' ||
-            forecastData.weatherIconId === '50d'
+            hourly.weatherIconId === '50d' || hourly.weatherIconId === '50n'
           "
         >
           <object
@@ -137,12 +133,7 @@
     <hr />
     <div class="row justify-content-center">
       <div class="col-auto">
-        <span id="forecast-card-info-temp">{{ forecastData.maxTemp }}°</span>
-      </div>
-      <div class="col-auto">
-        <span class="gray" id="forecast-card-info-temp"
-          >{{ forecastData.minTemp }}°</span
-        >
+        <span id="hourly-card-temp">{{ hourly.temperature }}°</span>
       </div>
     </div>
   </div>

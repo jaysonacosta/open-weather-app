@@ -196,6 +196,16 @@
       </div>
     </div>
     <hr />
+    <div class="row pb-3" id="hourly-forecast-row">
+      <ng-container *ngFor="let hourly of hourlyForecast.forecast">
+        <div class="col-xs-4 ml-2 mr-2" id="test-card">
+          <app-hourly-forecast-card
+            [hourly]="hourly"
+          ></app-hourly-forecast-card>
+        </div>
+      </ng-container>
+    </div>
+    <hr />
     <div class="row">
       <div class="col">
         <span id="forecast-title">7-Day Forecast</span>
