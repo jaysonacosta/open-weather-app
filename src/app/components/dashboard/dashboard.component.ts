@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
     temperature: 0,
     tempHigh: 0,
     tempLow: 0,
+    humidity: 0,
     feelsLike: 0,
     sunriseTime: '',
     sunsetTime: '',
@@ -76,12 +77,14 @@ export class DashboardComponent implements OnInit {
 
   async getWeather(coordinates: Coordinates): Promise<void> {
     const data: any = await this.weatherService.apiCall(coordinates);
+    console.log(data);
     const weatherData: WeatherData = {
       name: data.name,
       country: data.sys.country,
       temperature: Math.floor(data.main.temp),
       tempHigh: Math.floor(data.main.temp_max),
       tempLow: Math.floor(data.main.temp_min),
+      humidity: (data.main.humidity),
       feelsLike: Math.floor(data.main.feels_like),
       sunriseTime: moment.unix(data.sys.sunrise).format('LT'),
       sunsetTime: moment.unix(data.sys.sunset).format('LT'),
@@ -149,6 +152,7 @@ interface WeatherData {
   temperature: number;
   tempHigh: number;
   tempLow: number;
+  humidity: number;
   feelsLike: number;
   sunriseTime: string;
   sunsetTime: string;

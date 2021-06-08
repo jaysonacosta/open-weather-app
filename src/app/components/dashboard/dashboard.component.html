@@ -1,5 +1,5 @@
-<div class="container shadow pt-3">
-  <ng-container *ngIf="authenticated">
+<div class="container shadow pt-3 pb-3">
+  <ng-container *ngIf="authenticated; else notAuthenticated">
     <div class="row justify-content-center">
       <div class="col-auto">
         <span id="location-text">{{ weatherData.name }}</span>
@@ -227,5 +227,83 @@
         </div>
       </div>
     </div>
+    <hr />
+    <div class="row">
+      <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-auto">Humidity</div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">{{ weatherData.humidity }}%</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-auto">Feels like</div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">{{ weatherData.feelsLike }}°</div>
+        </div>
+      </div>
+    </div>
+    <hr />
   </ng-container>
+  <ng-template #notAuthenticated>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-warning d-flex align-items-center" role="alert">
+          <object
+            data="../../../assets/SVG/warning.svg"
+            height="30"
+            width="30"
+          ></object>
+          <div class="ml-3">
+            Whoops! In order to see the weather, you need to allow the site
+            access to your location.
+            <b>Please allow location access.</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <div class="row">
+    <div class="col">
+      <span id="footer-text">Created by Jayson Acosta.</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span id="footer-text"
+        >Created using
+        <a href="https://openweathermap.org/">https://openweathermap.org/</a
+        >.</span
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-auto">
+      <a href="https://github.com/jaysonacosta"
+        ><img
+          src="../../../assets/SVG/github-brands.svg"
+          height="30"
+          width="30"
+      /></a>
+    </div>
+    <div class="col-auto">
+      <a href="https://www.linkedin.com/in/jaysonacosta/"
+        ><img
+          src="../../../assets/SVG/linkedin-brands.svg"
+          height="30"
+          width="30"
+      /></a>
+    </div>
+    <div class="col-auto">
+      <a href="mailto:jaysonacosta540@gmail.com"
+        ><img
+          src="../../../assets/SVG/envelope-solid.svg"
+          height="30"
+          width="30"
+      /></a>
+    </div>
+  </div>
 </div>
