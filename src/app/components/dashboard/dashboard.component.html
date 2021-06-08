@@ -1,6 +1,16 @@
 <div class="container shadow pt-3">
   <ng-container *ngIf="authenticated">
     <div class="row justify-content-center">
+      <div class="col-auto">
+        <span id="location-text">{{ weatherData.name }}</span>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <span id="sub-text">{{ weatherData.descriptionMain }}</span>
+      </div>
+    </div>
+    <div class="row justify-content-center">
       <div class="col-auto d-flex">
         <span id="main-temperature">{{ weatherData.temperature }}</span
         ><span id="temp-unit" class="align-self-start mt-4">°F</span>
@@ -132,67 +142,6 @@
             class="align-self-center"
           ></object>
         </ng-container>
-      </div>
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-auto">
-        <div class="row">
-          <div class="col-auto">
-            <span id="location-text"
-              >{{ weatherData.name }}, {{ weatherData.country }}</span
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-auto">
-            <span id="sub-text">{{ weekday }}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-auto">
-            <span id="sub-text">{{ weatherData.descriptionMain }}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-auto">
-            <span id="sub-text">{{ weatherData.description }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-auto">
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            <object
-              data="../../../assets/SVG/sunrise.svg"
-              height="50"
-              width="50"
-            ></object>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            {{ weatherData.sunriseTime }}
-          </div>
-        </div>
-      </div>
-      <div class="col-auto">
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            <object
-              data="../../../assets/SVG/sunset.svg"
-              height="50"
-              width="50"
-            ></object>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            {{ weatherData.sunsetTime }}
-          </div>
-        </div>
       </div>
     </div>
     <hr />
