@@ -182,5 +182,50 @@
       </ng-container>
     </div>
     <hr />
+    <div class="row">
+      <div class="col">
+        <span id="info-text"
+          >{{ weatherData.descriptionMain }} currently. It's
+          {{ weatherData.temperature }}°; the high will be
+          {{ weatherData.tempHigh }}° and the low will be
+          {{ weatherData.tempLow }}°.</span
+        >
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <object
+              data="../../../assets/SVG/sunrise.svg"
+              height="80"
+              width="80"
+            ></object>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <span id="small-text">{{ weatherData.sunriseTime }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <object
+              data="../../../assets/SVG/sunset.svg"
+              height="80"
+              width="80"
+            ></object>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <span id="small-text">{{ weatherData.sunsetTime }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </ng-container>
 </div>
