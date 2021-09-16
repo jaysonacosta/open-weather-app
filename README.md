@@ -1,6 +1,5 @@
 # OpenWeatherApp
----
-Displays the current weather data at your current location using the Open Weather public API.
+## Displays the current weather data at your current location using the Open Weather public API.
 https://openweathermap.org/api
 ---
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
